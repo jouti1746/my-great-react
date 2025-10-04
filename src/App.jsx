@@ -1,8 +1,20 @@
+import { Suspense } from "react";
 import "./App.css";
 import Batsman from "./batsman";
 import ToDo from "./todo";
 import Users from "./users";
+import Posts from "./posts";
+
+
+const fetchPosts = async() =>{
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+  return res.json();
+}
+
 function App() {
+
+const postsPromise = fetchPosts();
+
   function handleClick(){
     alert('I am clicked');
   }
@@ -19,6 +31,10 @@ function App() {
   return (
     <>
       <h1>React Core Concepts</h1>
+
+      <Suspense fallback={<h4>Posts are coming.......</h4> }>
+        <Posts postsPromise={postsPromise}> </Posts>
+      </Suspense>
 
       <Users></Users>
 
