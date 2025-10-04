@@ -1,6 +1,7 @@
 import "./App.css";
 import Batsman from "./batsman";
 import ToDo from "./todo";
+import Users from "./users";
 function App() {
   function handleClick(){
     alert('I am clicked');
@@ -18,6 +19,8 @@ function App() {
   return (
     <>
       <h1>React Core Concepts</h1>
+
+      <Users></Users>
 
       <Batsman></Batsman>
 
